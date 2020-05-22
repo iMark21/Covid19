@@ -13,35 +13,41 @@ public enum RequestType: String {
 }
 
 protocol APIRequest {
+    var contentType: String { get set }
+    var body: Data? { get }
     var method: RequestType { get }
-    var version: String { get }
-    var endPoint: String { get }
-    var parameters: [String : String] { get }
+    var path: String { get }
+    var parameters: [String: String]? { get }
 }
 
 extension APIRequest {
     func request(with baseURL: URL) -> URLRequest {
         
-        guard var components = URLComponents(url: baseURL.appendingPathComponent(version+endPoint),
-                                             resolvingAgainstBaseURL: false) else {
-            fatalError("Unable to create URL components")
+        guard var components = URLComponents(
+            url: baseURL.appendingPathComponent(path),
+            resolvingAgainstBaseURL: false) else {
+                fatalError("Unable to create URL components")
         }
-
-        components.queryItems = parameters.map {
-            URLQueryItem(name: String($0), value: String($1))
+        
+        if let parameters = parameters {
+            components.queryItems = parameters.map {
+                URLQueryItem(name: String($0), value: String($1))
+            }
         }
-
+        
         guard let url = components.url else {
             fatalError("Could not get url")
         }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        request.addValue(
-            API.ContentType.json.rawValue,
-            forHTTPHeaderField: API.HTTPHeaderField.acceptType.rawValue
-        )
         
+        var request = URLRequest.init(
+            url: URL.init(string: url.fixPlusSymbolUrlEncoding()) ?? url
+        )
+        request.httpMethod = method.rawValue
+        request.httpBody = body
+        request.addValue(
+            contentType,
+            forHTTPHeaderField: API.HTTPHeaderField.contentType.rawValue
+        )
         return request
     }
 }

@@ -11,6 +11,11 @@ import Foundation
 struct API {
     static let base = URL(string: "https://api.covid19api.com")!
     
+    enum EndPoint: String {
+        case countries = "countries"
+        case summary = "summary"
+    }
+    
     enum HTTPHeaderField: String {
         case acceptType = "Accept"
         case contentType = "content-type"
