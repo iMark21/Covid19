@@ -15,6 +15,10 @@
 		AF0E23422471BD610095962D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0E23402471BD610095962D /* LaunchScreen.storyboard */; };
 		AF0E234D2471BD610095962D /* Covid_19Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E234C2471BD610095962D /* Covid_19Tests.swift */; };
 		AF0E23582471BD610095962D /* Covid_19UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E23572471BD610095962D /* Covid_19UITests.swift */; };
+		AF7CEA062478214100D11EA8 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7CEA052478214100D11EA8 /* Agent.swift */; };
+		AF7CEA082478219900D11EA8 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7CEA072478219900D11EA8 /* APIRequest.swift */; };
+		AF7CEA0B247821C100D11EA8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7CEA0A247821C100D11EA8 /* API.swift */; };
+		AF7CEA0D247822B200D11EA8 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7CEA0C247822B200D11EA8 /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		AF0E23532471BD610095962D /* Covid-19UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Covid-19UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0E23572471BD610095962D /* Covid_19UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid_19UITests.swift; sourceTree = "<group>"; };
 		AF0E23592471BD610095962D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF7CEA052478214100D11EA8 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		AF7CEA072478219900D11EA8 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		AF7CEA0A247821C100D11EA8 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		AF7CEA0C247822B200D11EA8 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +107,9 @@
 		AF0E23342471BD5E0095962D /* Covid-19 */ = {
 			isa = PBXGroup;
 			children = (
-				AF0E23352471BD5E0095962D /* AppDelegate.swift */,
-				AF0E23372471BD5E0095962D /* SceneDelegate.swift */,
+				AF7CE9FD247820B000D11EA8 /* App */,
+				AF7CE9FE247820B900D11EA8 /* Domain */,
+				AF7CE9FF247820D100D11EA8 /* UseCases */,
 				AF0E23392471BD5E0095962D /* ContentView.swift */,
 				AF0E233B2471BD610095962D /* Assets.xcassets */,
 				AF0E23402471BD610095962D /* LaunchScreen.storyboard */,
@@ -134,6 +143,113 @@
 				AF0E23592471BD610095962D /* Info.plist */,
 			);
 			path = "Covid-19UITests";
+			sourceTree = "<group>";
+		};
+		AF7CE9FD247820B000D11EA8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AF7CEA002478210700D11EA8 /* Delegate */,
+				AF7CEA012478210D00D11EA8 /* Network */,
+				AF0E23352471BD5E0095962D /* AppDelegate.swift */,
+				AF0E23372471BD5E0095962D /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AF7CE9FE247820B900D11EA8 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				AF7CEA0F2478260A00D11EA8 /* Covid */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		AF7CE9FF247820D100D11EA8 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		AF7CEA002478210700D11EA8 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		AF7CEA012478210D00D11EA8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AF7CEA09247821B500D11EA8 /* Constants */,
+				AF7CEA042478213600D11EA8 /* Client */,
+				AF7CEA032478211C00D11EA8 /* Request */,
+				AF7CEA022478211600D11EA8 /* Agent */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AF7CEA022478211600D11EA8 /* Agent */ = {
+			isa = PBXGroup;
+			children = (
+				AF7CEA052478214100D11EA8 /* Agent.swift */,
+			);
+			path = Agent;
+			sourceTree = "<group>";
+		};
+		AF7CEA032478211C00D11EA8 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				AF7CEA072478219900D11EA8 /* APIRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		AF7CEA042478213600D11EA8 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				AF7CEA0C247822B200D11EA8 /* APIClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		AF7CEA09247821B500D11EA8 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				AF7CEA0A247821C100D11EA8 /* API.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		AF7CEA0E2478260100D11EA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AF7CEA0F2478260A00D11EA8 /* Covid */ = {
+			isa = PBXGroup;
+			children = (
+				AF7CEA0E2478260100D11EA8 /* Model */,
+				AF7CEA102478261A00D11EA8 /* Repository */,
+				AF7CEA112478262100D11EA8 /* Request */,
+			);
+			path = Covid;
+			sourceTree = "<group>";
+		};
+		AF7CEA102478261A00D11EA8 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		AF7CEA112478262100D11EA8 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +384,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF0E23362471BD5E0095962D /* AppDelegate.swift in Sources */,
+				AF7CEA0D247822B200D11EA8 /* APIClient.swift in Sources */,
+				AF7CEA062478214100D11EA8 /* Agent.swift in Sources */,
 				AF0E23382471BD5E0095962D /* SceneDelegate.swift in Sources */,
+				AF7CEA082478219900D11EA8 /* APIRequest.swift in Sources */,
+				AF7CEA0B247821C100D11EA8 /* API.swift in Sources */,
 				AF0E233A2471BD5E0095962D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
