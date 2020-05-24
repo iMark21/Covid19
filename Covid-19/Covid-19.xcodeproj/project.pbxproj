@@ -111,9 +111,40 @@
 		AF068E9C247ADC6F009A969A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AF068E9D247ADC7F009A969A /* CountryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF068E9F247AEBD9009A969A /* List */ = {
+			isa = PBXGroup;
+			children = (
+				AF0E23392471BD5E0095962D /* CountriesView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		AF068EA0247AEBE3009A969A /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				AF7CEA312478557700D11EA8 /* CountryView.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		AF068EA1247AEBFF009A969A /* List */ = {
+			isa = PBXGroup;
+			children = (
+				AF7CEA1F24782D4000D11EA8 /* CountriesViewModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		AF068EA2247AEC04009A969A /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				AF068E9D247ADC7F009A969A /* CountryViewModel.swift */,
+			);
+			path = Item;
 			sourceTree = "<group>";
 		};
 		AF0E23292471BD5E0095962D = {
@@ -304,8 +335,8 @@
 			isa = PBXGroup;
 			children = (
 				AF7CEA282478474200D11EA8 /* View */,
-				AF7CEA2124782E1600D11EA8 /* ViewState */,
 				AF7CEA1E24782D0300D11EA8 /* ViewModel */,
+				AF7CEA2124782E1600D11EA8 /* State */,
 			);
 			path = Countries;
 			sourceTree = "<group>";
@@ -313,24 +344,26 @@
 		AF7CEA1E24782D0300D11EA8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AF7CEA1F24782D4000D11EA8 /* CountriesViewModel.swift */,
+				AF068EA2247AEC04009A969A /* Item */,
+				AF068EA1247AEBFF009A969A /* List */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		AF7CEA2124782E1600D11EA8 /* ViewState */ = {
+		AF7CEA2124782E1600D11EA8 /* State */ = {
 			isa = PBXGroup;
 			children = (
 				AF7CEA2224782E2E00D11EA8 /* CountriesViewState.swift */,
 			);
-			path = ViewState;
+			path = State;
 			sourceTree = "<group>";
 		};
 		AF7CEA282478474200D11EA8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AF068EA0247AEBE3009A969A /* Item */,
+				AF068E9F247AEBD9009A969A /* List */,
 				AF7CEA2F2478555D00D11EA8 /* Country */,
-				AF0E23392471BD5E0095962D /* CountriesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -355,17 +388,8 @@
 			isa = PBXGroup;
 			children = (
 				AF068E9C247ADC6F009A969A /* ViewModel */,
-				AF7CEA302478556800D11EA8 /* View */,
 			);
 			path = Country;
-			sourceTree = "<group>";
-		};
-		AF7CEA302478556800D11EA8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				AF7CEA312478557700D11EA8 /* CountryView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
