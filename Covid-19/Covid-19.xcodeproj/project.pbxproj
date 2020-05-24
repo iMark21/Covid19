@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF068E9E247ADC7F009A969A /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF068E9D247ADC7F009A969A /* CountryViewModel.swift */; };
 		AF0E23362471BD5E0095962D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E23352471BD5E0095962D /* AppDelegate.swift */; };
 		AF0E23382471BD5E0095962D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E23372471BD5E0095962D /* SceneDelegate.swift */; };
 		AF0E233A2471BD5E0095962D /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E23392471BD5E0095962D /* CountriesView.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF068E9D247ADC7F009A969A /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		AF0E23322471BD5E0095962D /* Covid-19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0E23352471BD5E0095962D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF0E23372471BD5E0095962D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF068E9C247ADC6F009A969A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF068E9D247ADC7F009A969A /* CountryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AF0E23292471BD5E0095962D = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +354,7 @@
 		AF7CEA2F2478555D00D11EA8 /* Country */ = {
 			isa = PBXGroup;
 			children = (
+				AF068E9C247ADC6F009A969A /* ViewModel */,
 				AF7CEA302478556800D11EA8 /* View */,
 			);
 			path = Country;
@@ -502,6 +513,7 @@
 				AF7CEA082478219900D11EA8 /* APIRequest.swift in Sources */,
 				AF7CEA0B247821C100D11EA8 /* API.swift in Sources */,
 				AF7CEA132478268900D11EA8 /* CountriesRequest.swift in Sources */,
+				AF068E9E247ADC7F009A969A /* CountryViewModel.swift in Sources */,
 				AF0E233A2471BD5E0095962D /* CountriesView.swift in Sources */,
 				AF7CEA1C24782AE500D11EA8 /* CountriesResponse.swift in Sources */,
 				AF7CEA2E247853E000D11EA8 /* SearchBar.swift in Sources */,

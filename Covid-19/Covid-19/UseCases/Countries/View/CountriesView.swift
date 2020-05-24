@@ -11,15 +11,20 @@ import SwiftUI
 struct CountriesView: View {
     
     @ObservedObject var viewModel: CountriesViewModel
+        
+    init(viewModel: CountriesViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         NavigationView {
             VStack {
                 List {
                     SearchBarView(searchText: $viewModel.searchText)
-                    ForEach(viewModel.dataSource) { country in
-                        return CountryView.init(country: country)
-                    }
+                    ForEach(
+                        viewModel.dataSource,
+                        content: CountryView.init(viewModel:)
+                    )
                 }
             }
             .navigationBarTitle("COVID-19 🦠")

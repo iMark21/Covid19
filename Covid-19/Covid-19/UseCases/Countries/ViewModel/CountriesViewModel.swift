@@ -16,16 +16,20 @@ protocol CountriesViewModelProtocol {
 
 class CountriesViewModel: CountriesViewModelProtocol, ObservableObject {
     
+    /// Output Subscribers
+    @Published var state: CountriesViewState
+    @Published var dataSource: [CountryViewModel]
+    @Published var searchText: String
+    
+    /// Inpunt variables
+    private let input: Input
+    
     struct Input {
         let repository: CovidRepositoryProtocol
     }
     
-    @Published var state: CountriesViewState
-    @Published var dataSource: [Country]
-    @Published var searchText: String
-    
-    private var allCountries: [Country]
-    private let input: Input
+    /// Private variables
+    private var allRowCountries: [CountryViewModel]
     private var disposables: Set<AnyCancellable>
     
     init(repository: CovidRepositoryProtocol = CovidRepository()) {
@@ -34,7 +38,7 @@ class CountriesViewModel: CountriesViewModelProtocol, ObservableObject {
         )
         
         self.state = .loading
-        self.allCountries = []
+        self.allRowCountries = []
         self.dataSource = []
         self.searchText = ""
         self.disposables = Set<AnyCancellable>()
@@ -59,8 +63,10 @@ class CountriesViewModel: CountriesViewModelProtocol, ObservableObject {
                 }
                 }, receiveValue: { [weak self] summary in
                     guard let self = self else { return }
-                    self.allCountries = summary.Countries
-                    self.dataSource = summary.Countries
+                    self.allRowCountries = self.generateDatasource(
+                        countries: summary.Countries
+                    )
+                    self.dataSource = self.allRowCountries
                 }
         ).store(in: &disposables)
         
@@ -68,17 +74,26 @@ class CountriesViewModel: CountriesViewModelProtocol, ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { (str) in
                 if !self.searchText.isEmpty {
-                    self.dataSource = self.allCountries.filter {
-                        guard let country = $0.Country else {
-                            return false
-                        }
+                    self.dataSource = self.allRowCountries.filter {
+                        let country = $0.output.name
                         return country.contains(str)
                     }
                 } else {
-                    self.dataSource = self.allCountries
+                    self.dataSource = self.allRowCountries
                 }
             }
         ).store(in: &disposables)
+    }
+    
+    // MARK: - Datasource
+    
+    private func generateDatasource(countries: [Country]) -> [CountryViewModel]{
+        var result: [CountryViewModel] = []
+        for country in countries {
+            let countryViewModel = CountryViewModel.init(country: country)
+            result.append(countryViewModel)
+        }
+        return result
     }
     
 }

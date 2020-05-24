@@ -9,31 +9,54 @@
 import SwiftUI
 
 struct CountryView: View {
-    var country: Country
+    
+    private let viewModel: CountryViewModel
+    
+    init(viewModel: CountryViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(country.Country ?? "")")
+            Text(viewModel.output.name)
                 .font(Font.headline)
             Text("")
             HStack(alignment: .center) {
-                Text("\(country.NewDeaths) death today,")
+                Text(viewModel.output.newDeaths)
                     .foregroundColor(.red)
-                Text("total: \(country.TotalDeaths)")
+                Text(viewModel.output.totaDeaths)
                     .foregroundColor(.red)
             }
             HStack {
-                Text("\(country.NewConfirmed) confirmed today,")
+                Text(viewModel.output.newConfirmed)
                     .foregroundColor(.black)
-                Text("total: \(country.TotalConfirmed)")
+                Text(viewModel.output.totalConfirmed)
                     .foregroundColor(.black)
             }
             HStack {
-                Text("\(country.NewRecovered) recovered today,")
+                Text(viewModel.output.newRecovered)
                     .foregroundColor(.green)
-                Text("total: \(country.TotalRecovered)")
+                Text(viewModel.output.totalRecoverd)
                     .foregroundColor(.green)
             }
         }
+    }
+}
+
+struct CountryView_Previews: PreviewProvider {
+    static var previews: some View {
+        let country = Country.init(
+            Country: "España",
+            Slug: "ESP", ISO2: "ES",
+            CountryCode: "ES",
+            NewConfirmed: 12,
+            TotalConfirmed: 2221,
+            NewDeaths: 2321,
+            TotalDeaths: 321332,
+            NewRecovered: 2,
+            TotalRecovered: 231
+        )
+        let countryViewModel = CountryViewModel.init(country: country)
+        return CountryView.init(viewModel: countryViewModel)
     }
 }
