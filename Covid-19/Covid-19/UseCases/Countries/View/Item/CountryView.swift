@@ -17,27 +17,19 @@ struct CountryView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(viewModel.output.name)
-                .font(Font.headline)
-            Text("")
-            HStack(alignment: .center) {
-                Text(viewModel.output.newDeaths)
-                    .foregroundColor(.red)
-                Text(viewModel.output.totaDeaths)
-                    .foregroundColor(.red)
-            }
-            HStack {
+        HStack {
+            Image(uiImage: UIImage(named: viewModel.output.image) ?? UIImage())
+                .resizable()
+                .scaledToFit()
+                .frame(width: 60, height: 40)
+            
+            VStack (alignment: .leading) {
+                Text(viewModel.output.name)
+                    .font(.body)
+                    .bold()
                 Text(viewModel.output.newConfirmed)
                     .foregroundColor(.black)
-                Text(viewModel.output.totalConfirmed)
-                    .foregroundColor(.black)
-            }
-            HStack {
-                Text(viewModel.output.newRecovered)
-                    .foregroundColor(.green)
-                Text(viewModel.output.totalRecoverd)
-                    .foregroundColor(.green)
+                    .font(.footnote)
             }
         }
     }

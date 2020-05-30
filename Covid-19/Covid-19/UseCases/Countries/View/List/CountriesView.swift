@@ -14,13 +14,17 @@ struct CountriesView: View {
         
     init(viewModel: CountriesViewModel) {
         self.viewModel = viewModel
+        UITableView.appearance().tintColor = .clear
     }
     
     var body: some View {
         NavigationView {
-            VStack {
+            ZStack {
                 List {
-                    SearchBarView(searchText: $viewModel.searchText)
+                    SearchBar(
+                        text: $viewModel.searchText,
+                        placeholder: "Search"
+                    )
                     ForEach(
                         viewModel.dataSource,
                         content: CountryView.init(viewModel:)
@@ -38,3 +42,4 @@ struct CountriesView_Previews: PreviewProvider {
         CountriesView(viewModel: CountriesViewModel())
     }
 }
+

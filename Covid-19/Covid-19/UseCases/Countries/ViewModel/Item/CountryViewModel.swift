@@ -20,6 +20,7 @@ class CountryViewModel: Identifiable {
         let totalConfirmed: String
         let newRecovered: String
         let totalRecoverd: String
+        let image: String
     }
     
     struct Input {
@@ -34,12 +35,13 @@ class CountryViewModel: Identifiable {
         input = Input.init(country: country)
         output = Output.init(
             name: country.Country ?? "",
-            newDeaths: "\(country.NewDeaths) death today,",
+            newDeaths: "\(country.NewDeaths) death today",
             totaDeaths: "total: \(country.TotalDeaths)",
-            newConfirmed: "\(country.NewConfirmed) confirmed today,",
+            newConfirmed: "\(country.NewConfirmed.formattedWithSeparator) confirmed today",
             totalConfirmed: "total: \(country.TotalConfirmed)",
-            newRecovered: "\(country.NewRecovered) recovered today,",
-            totalRecoverd: "total: \(country.TotalRecovered)"
+            newRecovered: "\(country.NewRecovered) recovered today",
+            totalRecoverd: "total: \(country.TotalRecovered)",
+            image: "\(country.Slug ?? "")-flag-icon-128"
         )
     }
     

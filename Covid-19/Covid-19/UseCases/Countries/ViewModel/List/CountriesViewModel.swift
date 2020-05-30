@@ -49,7 +49,6 @@ class CountriesViewModel: CountriesViewModelProtocol, ObservableObject {
     func setup() {
         
         input.repository.summary()
-            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] value in
                 guard let self = self else { return }
                 switch value {
@@ -75,8 +74,8 @@ class CountriesViewModel: CountriesViewModelProtocol, ObservableObject {
             .sink(receiveValue: { (str) in
                 if !self.searchText.isEmpty {
                     self.dataSource = self.allRowCountries.filter {
-                        let country = $0.output.name
-                        return country.contains(str)
+                        let country = $0.output.name.lowercased()
+                        return country.contains(str.lowercased())
                     }
                 } else {
                     self.dataSource = self.allRowCountries
