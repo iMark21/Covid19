@@ -21,12 +21,19 @@ struct Agent {
     // It accepts a URLRequest instance that fully describes the request configuration.
     // The decoder is optional in case custom JSON parsing is needed.
     func run<T: Decodable>(_ request: URLRequest, _ decoder: JSONDecoder = JSONDecoder()) -> AnyPublisher<Response<T>, Error> {
+        ///Log request
+        DebugLogs.log(request: request)
         return URLSession.shared
             .dataTaskPublisher(for: request) // 3 Create data task as a Combine publisher.
             .tryMap { result -> Response<T> in
                 let value = try decoder.decode(T.self, from: result.data) // 4 Parse JSON data. We have constrained T to be Decodable in the run<T>() method declaration.
+                DebugLogs.log(data: result.data, response: result.response as? HTTPURLResponse, error: nil)
                 return Response(value: value, response: result.response) // 5 Create the Response<T> object and pass it downstream. It contains the parsed value and the URL response.
-            }
+        }
+        .mapError({ (error) -> Error in
+            DebugLogs.log(data: nil, response: nil, error: nil)
+            return error
+        })  
             .receive(on: DispatchQueue.main) // 6 Deliver values on the main thread.
             .eraseToAnyPublisher() // 7 Erase publisher’s type and return an instance of AnyPublisher.
     }

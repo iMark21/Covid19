@@ -58,7 +58,6 @@ class CountriesViewModel: CountriesViewModelProtocol, ObservableObject {
                 case .finished:
                     print("Finished")
                     self.state = .success
-                    break
                 }
                 }, receiveValue: { [weak self] summary in
                     guard let self = self else { return }

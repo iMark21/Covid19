@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF059FBF249678330007527F /* DebugLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF059FBE249678330007527F /* DebugLogs.swift */; };
 		AF068E9E247ADC7F009A969A /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF068E9D247ADC7F009A969A /* CountryViewModel.swift */; };
 		AF0E23362471BD5E0095962D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E23352471BD5E0095962D /* AppDelegate.swift */; };
 		AF0E23382471BD5E0095962D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E23372471BD5E0095962D /* SceneDelegate.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF059FBE249678330007527F /* DebugLogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLogs.swift; sourceTree = "<group>"; };
 		AF068E9D247ADC7F009A969A /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		AF0E23322471BD5E0095962D /* Covid-19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0E23352471BD5E0095962D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF059FBD2496780D0007527F /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				AF059FBE249678330007527F /* DebugLogs.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
 		AF068E9C247ADC6F009A969A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				AF7CEA002478210700D11EA8 /* Delegate */,
+				AF059FBD2496780D0007527F /* Log */,
 				AF7CEA2B247853CA00D11EA8 /* Common */,
 				AFA3C4D42482A87C000CAA1A /* Coordinator */,
 				AF7CEA14247828A200D11EA8 /* Extensions */,
@@ -601,6 +612,7 @@
 				AFA3C4D12482A68D000CAA1A /* HomeView.swift in Sources */,
 				AF7CEA132478268900D11EA8 /* CountriesRequest.swift in Sources */,
 				AF068E9E247ADC7F009A969A /* CountryViewModel.swift in Sources */,
+				AF059FBF249678330007527F /* DebugLogs.swift in Sources */,
 				AFA3C4D62482A88B000CAA1A /* AppCoordinator.swift in Sources */,
 				AF0E233A2471BD5E0095962D /* CountriesView.swift in Sources */,
 				AF7CEA1C24782AE500D11EA8 /* CountriesResponse.swift in Sources */,
